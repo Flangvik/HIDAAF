@@ -24,7 +24,7 @@ Teaser:
 ## How do i contribute ?
 
 
-To submit a payload, simply make 2 files in the payload direcotry 
+To submit a payload, simply make 2 files in the payload directory 
 
 
 Example:
@@ -32,7 +32,7 @@ S7_Install_Backdoor
 S7_Install_Backdoor_Raw
 
 The xxx_Raw file is the actual bash bunny payload 
-it can contain 2 varibbals (currently) that the framework will ask to replace
+it can contain 2 variables (currently) that the framework will ask to replace
 #SOURCES# and #APKNAME# , there will be added more
 
 The XXXX file is a XML style information file with the link to the raw file
@@ -40,7 +40,7 @@ The XXXX file is a XML style information file with the link to the raw file
 
 <data>
 	<info>
-		Target: Samsung S8 / S8 + running latest update. 
+		Target: Samsung S7 / S7 + running latest update. 
 		Payload will enable unknown sources on the device and procces to download, install and run an APK of your choose.
 
 		It uses ECM_Ethernet + HID in the bash bunny to host the APK file.
