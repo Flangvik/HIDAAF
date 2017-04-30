@@ -38,20 +38,20 @@ it can contain 2 variables (currently) that the framework will ask to replace
 The XXXX file is a XML style information file with the link to the raw file
 
 
-<data>
-	<info>
-		Target: Samsung S7 / S7 + running latest update. 
-		Payload will enable unknown sources on the device and procces to download, install and run an APK of your choose.
+	<data>
+		<info>
+			Target: Samsung S7 / S7 + running latest update. 
+			Payload will enable unknown sources on the device and procces to download, install and run an APK of your choose.
 
-		It uses ECM_Ethernet + HID in the bash bunny to host the APK file.
-	</info>
+			It uses ECM_Ethernet + HID in the bash bunny to host the APK file.
+		</info>
 
 
 
-	<payload>
-		S8_Install_Backdoor_raw.txt
-	</payload>
-</data>
+		<payload>
+			S8_Install_Backdoor_raw.txt
+		</payload>
+	</data>
 
 Like so :)
 
