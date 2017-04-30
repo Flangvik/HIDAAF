@@ -1,0 +1,20 @@
+<data>
+
+
+<info>
+Target: Samsung S8 / S8 + running latest update. 
+Payload will enable unknown sources on the device and procces to download, install and run an APK of your choose.
+
+It uses ECM_Ethernet + HID in the bash bunny to host the APK file.
+</info>
+
+
+
+<payload>
+S8_Install_Backdoor_raw.txt
+</payload>
+
+
+
+
+</data>

