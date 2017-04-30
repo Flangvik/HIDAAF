@@ -19,3 +19,40 @@ Soon to be released!
 
 
 Teaser: 
+
+
+## How do i contribute ?
+
+
+To submit a payload, simply make 2 files in the payload direcotry 
+
+
+Example:
+S7_Install_Backdoor 
+S7_Install_Backdoor_Raw
+
+The xxx_Raw file is the actual bash bunny payload 
+it can contain 2 varibbals (currently) that the framework will ask to replace
+#SOURCES# and #APKNAME# , there will be added more
+
+The XXXX file is a XML style information file with the link to the raw file
+
+
+<data>
+	<info>
+		Target: Samsung S8 / S8 + running latest update. 
+		Payload will enable unknown sources on the device and procces to download, install and run an APK of your choose.
+
+		It uses ECM_Ethernet + HID in the bash bunny to host the APK file.
+	</info>
+
+
+
+	<payload>
+		S8_Install_Backdoor_raw.txt
+	</payload>
+</data>
+
+Like so :)
+
+
