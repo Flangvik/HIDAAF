@@ -29,13 +29,13 @@ To submit a payload, simply make 2 files in the payload directory
 
 Example:
 S7_Install_Backdoor 
-S7_Install_Backdoor_Raw
+ and  S7_Install_Backdoor_Raw
 
-The xxx_Raw file is the actual bash bunny payload 
+The S7_Install_Backdoor_Raw file is the actual bash bunny payload 
 it can contain 2 variables (currently) that the framework will ask to replace
 #SOURCES# and #APKNAME# , there will be added more
 
-The XXXX file is a XML style information file with the link to the raw file
+The 7_Install_Backdoor file is a XML style information file with the link to the raw file
 
 
 	<data>
